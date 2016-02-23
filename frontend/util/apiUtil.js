@@ -1,11 +1,13 @@
 var ApiActions = require('../actions/apiActions');
 
 var ApiUtil = {
-  fetchBenches: function(){
+  fetchBenches: function(bounds){
+
   	$.ajax({
       url: 'api/benches',
       type: 'GET',
-      dataType: "json",
+      dataType: 'json',
+      data: {bounds: bounds},
       success:(function(benches){
       	ApiActions.receiveAll(benches);
       })
